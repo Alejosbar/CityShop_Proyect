@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cota Emprende</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-md bg-light border-bottom sticky-top">
+    <div class="container-fluid" style="max-width: 720px;">
+      <a class="navbar-brand d-flex align-items-center" href="docs/Presentación city-shop.pdf" target="_blank">
+        <img src="img/logo city-shop.jpg" alt="Logo" width="50" height="50">
+
+        <span class="fw-semibold ms-2">Cota Emprende</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="main-nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="#home" class="nav-link active"><i class="bi bi-house-door me-1"></i>Inicio</a></li>
+          <li class="nav-item"><a href="#chat" class="nav-link"><i class="bi bi-chat-dots me-1"></i>Asistente</a></li>
+          <li class="nav-item"><a href="#register" class="nav-link"><i class="bi bi-person-plus me-1"></i>Registrar</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link"><i class="bi bi-telephone me-1"></i>Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4" style="max-width: 720px;">
+    
+    <!-- Home Page -->
+    <div id="home" class="page">
+      <div class="text-center py-3">
+        <img src="img/iglesia-nuestra-senora-del-rosario.webp" class="img-fluid rounded-3 mb-3" style="max-height: 250px; width: 100%; object-fit: cover;" alt="Cota, Cundinamarca">
+        <h1 class="text-success">Emprendimientos de Cota</h1>
+        <p class="lead text-muted">Descubre y apoya los negocios locales de nuestra comunidad</p>
+        <a href="Modelo_Canvas/index.html" class="btn btn-success mt-3">Modelo Canvas</a>
+      </div>
+
+      <div class="my-4">
+        <h2 class="h4">Categorías</h2>
+        <div id="categories-list" class="d-grid gap-3">
+          <!-- Categories will be injected by JS -->
+        </div>
+      </div>
+
+      <div>
+        <h2 class="h4" id="business-list-title">Todos los Negocios</h2>
+        <div id="business-list" class="d-grid gap-3">
+          <!-- Businesses will be injected by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Business Detail Page -->
+    <div id="business-detail" class="page" style="display: none;">
+      <!-- Business detail content will be injected by JS -->
+    </div>
+
+    <!-- Register Page -->
+    <div id="register" class="page" style="display: none;">
+      <div class="text-center">
+        <h1 class="text-success">Registra tu Negocio</h1>
+        <p class="lead text-muted">Únete a la comunidad de emprendedores de Cota</p>
+      </div>
+      <div class="card">
+        <div class="card-header"><h5 class="mb-0">Información del Negocio</h5></div>
+        <div class="card-body">
+          <form>
+            <div class="mb-3"><label class="form-label">Nombre del Negocio</label><input type="text" class="form-control" placeholder="Ingresa el nombre de tu negocio"></div>
+            <div class="mb-3"><label class="form-label">Categoría</label><select class="form-select" id="register-category-select"></select></div>
+            <div class="mb-3"><label class="form-label">Descripción</label><textarea class="form-control" rows="3" placeholder="Describe tu negocio y servicios"></textarea></div>
+            <div class="mb-3"><label class="form-label">Teléfono</label><input type="tel" class="form-control" placeholder="+57 300 123 4567"></div>
+            <div class="mb-3"><label class="form-label">Dirección en Cota</label><input type="text" class="form-control" placeholder="Calle/Carrera y número"></div>
+            <div class="mb-3"><label class="form-label">Horarios de Atención</label><input type="text" class="form-control" placeholder="Ej: Lunes a Viernes 8:00 AM - 6:00 PM"></div>
+            <button type="submit" class="btn btn-success w-100">Registrar Negocio</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Page -->
+    <div id="chat" class="page" style="display: none;">
+        <div class="card" style="height: 75vh;">
+            <div class="card-header text-center">
+                <h1 class="h5 mb-0 text-success">Asistente Virtual</h1>
+                <p class="text-muted small mb-0">Pregúntame sobre negocios en Cota</p>
+            </div>
+            <div id="chat-messages" class="card-body overflow-auto d-flex flex-column gap-3">
+                <!-- Chat messages will be injected by JS -->
+            </div>
+            <div class="card-footer">
+                <div class="input-group">
+                    <input type="text" id="chat-input" class="form-control" placeholder="Escribe tu pregunta...">
+                    <button id="chat-send-btn" class="btn btn-success">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Contact Page -->
+    <div id="contact" class="page" style="display: none;">
+      <div class="text-center">
+        <h1 class="text-success">Contacto</h1>
+        <p class="lead text-muted">¿Tienes alguna pregunta o sugerencia?</p>
+      </div>
+      <div class="card mb-4">
+        <div class="card-header"><h5 class="mb-0">Envíanos un Mensaje</h5></div>
+        <div class="card-body">
+          <form>
+            <div class="mb-3"><label class="form-label">Nombre</label><input type="text" class="form-control" placeholder="Tu nombre completo"></div>
+            <div class="mb-3"><label class="form-label">Email</label><input type="email" class="form-control" placeholder="tu@email.com"></div>
+            <div class="mb-3"><label class="form-label">Teléfono</label><input type="tel" class="form-control" placeholder="+57 300 123 4567"></div>
+            <div class="mb-3"><label class="form-label">Mensaje</label><textarea class="form-control" rows="4" placeholder="Escribe tu mensaje aquí..."></textarea></div>
+            <button type="submit" class="btn btn-success w-100">Enviar Mensaje</button>
+          </form>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header"><h5 class="mb-0">Información de Contacto</h5></div>
+        <div class="card-body">
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-telephone-fill me-2 text-success"></i>+57 300 5692927</li>
+            <li class="mb-2"><i class="bi bi-envelope-fill me-2 text-success"></i>city-shop00@gmail.com</li>
+            <li><i class="bi bi-geo-alt-fill me-2 text-success"></i>City-Shop</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Modal PDF: Prepara tus respuestas -->
+  <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="pdfModalLabel">Menú El Barrilito del chef</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <iframe src="docs/MENUS-SALUDABLES.pdf" width="100%" height="600px" style="border:none;"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal PDF: HIGASHIHANA Menu -->
+  <div class="modal fade" id="higashihanaModal" tabindex="-1" aria-labelledby="higashihanaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="higashihanaModalLabel">Menú Semanal - HIGASHIHANA</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <iframe src="docs/menu-semanal-dia-a-dia.pdf" width="100%" height="600px" style="border:none;"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal PDF: KOAJ BASIC Catalog -->
+  <div class="modal fade" id="koajModal" tabindex="-1" aria-labelledby="koajModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="koajModalLabel">Catálogo - KOAJ BASIC</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <iframe src="docs/catalogo-koaj.pdf" width="100%" height="600px" style="border:none;"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal PDF: Lili Pink Catalog -->
+  <div class="modal fade" id="liliModal" tabindex="-1" aria-labelledby="liliModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="liliModalLabel">Catálogo - Lili Pink</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <iframe src="docs/catalogo.pdf" width="100%" height="600px" style="border:none;"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
